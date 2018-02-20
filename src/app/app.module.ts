@@ -4,22 +4,21 @@ import {HttpClientModule} from "@angular/common/http";
 import {RouterModule} from "@angular/router";
 
 import {AppComponent} from "./app.component";
-import {MessageListComponent} from "./message-list/message-list.component";
-import {MessageService} from "./shared/services/message.service";
-
 import {routes} from "./routes";
+import {IncidentListComponent} from "./incident-list/incident-list.component";
+import {IncidentService} from "./shared/services/incident.service";
 
 @NgModule({
   declarations: [
     AppComponent,
-    MessageListComponent
+    IncidentListComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
     HttpClientModule
   ],
-  providers: [MessageService],
+  providers: [IncidentService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

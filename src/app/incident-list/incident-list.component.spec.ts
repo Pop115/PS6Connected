@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { MessageListComponent } from "./message-list.component";
+import { IncidentListComponent } from "./incident-list.component";
 
-describe("MessageListComponent", () => {
-  let component: MessageListComponent;
-  let fixture: ComponentFixture<MessageListComponent>;
+describe("IncidentListComponent", () => {
+  let component: IncidentListComponent;
+  let fixture: ComponentFixture<IncidentListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MessageListComponent ]
+      declarations: [ IncidentListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MessageListComponent);
+    fixture = TestBed.createComponent(IncidentListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
