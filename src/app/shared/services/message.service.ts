@@ -10,7 +10,7 @@ export class MessageService {
 
   public messageList$: BehaviorSubject<MessageModel[]>;
 
-  private route = "/change-this-route-name-please";
+  private route = "/visualiser";
 
   constructor(private http: HttpClient) {
     this.messageList$ = new BehaviorSubject([]);
