@@ -7,19 +7,25 @@ import {AppComponent} from "./app.component";
 import {routes} from "./routes";
 import {IncidentListComponent} from "./incident-list/incident-list.component";
 import {IncidentService} from "./shared/services/incident.service";
+import {FormsModule} from "@angular/forms";
+import {LoginComponent} from "./login/login.component";
+import {ChooseUserComponent} from "./chooseUser/chooseUser.component";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    IncidentListComponent
-  ],
-  imports: [
-    BrowserModule,
-    RouterModule.forRoot(routes),
-    HttpClientModule
-  ],
-  providers: [IncidentService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        IncidentListComponent,
+        LoginComponent,
+        ChooseUserComponent
+    ],
+    imports: [
+        BrowserModule,
+        RouterModule.forRoot(routes),
+        HttpClientModule,
+        FormsModule
+    ],
+    providers: [IncidentService],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

@@ -1,5 +1,29 @@
+
 <div *ngIf="incidentList.length > 0">
-  <div *ngFor="let message of incidentList">
-    {{incident.content}} <br/>
+  <div class="col-lg-12" *ngFor="let incident of incidentList">
+
+    <div class="row">
+      <div class="card">
+        <h5 class="card-header">{{incident.titre}}</h5>
+        <div class="card-body">
+          <header class="card-title">Auteur:{{incident.auteur}}</header>
+          <p class="card-text">{{incident.description}}</p>
+          <footer>{{incident.date}}</footer>
+        </div>
+      </div>
+    </div>
+    <!--
+    {{incident.id}} <br/>
+    {{incident.type}} <br/>
+    {{incident.auteur}} <br/>
+    {{incident.destinataires}} <br/>
+    {{incident.localisation}} <br/>
+    {{incident.etat}} <br/>
+    {{incident.importance}} <br/>
+    {{incident.titre}} <br/>
+    {{incident.description}} <br/>
+    {{incident.date}} <br/>
+    -->
+
   </div>
 </div>

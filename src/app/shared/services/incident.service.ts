@@ -10,7 +10,7 @@ export class IncidentService {
 
     public incidentList: BehaviorSubject<IncidentModel[]>;
 
-    private route = "/visualiser";
+    private route = "/incidents";
 
     constructor(private http: HttpClient) {
         this.incidentList = new BehaviorSubject([]);

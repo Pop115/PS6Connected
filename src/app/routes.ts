@@ -1,7 +1,11 @@
 import {Routes} from "@angular/router";
-import {MessageListComponent} from "./message-list/message-list.component";
+import {IncidentListComponent} from "./incident-list/incident-list.component";
+import {LoginComponent} from "./login/login.component";
+import {ChooseUserComponent} from "./chooseUser/chooseUser.component";
 
 export const routes: Routes = [
-  {path: "", component: MessageListComponent},
-  {path: "messages", component: MessageListComponent}
+  {path: "", component: LoginComponent},
+  {path:"login", component:LoginComponent},
+  {path:"chooseUser", component:ChooseUserComponent},
+  {path: "incidents", component: IncidentListComponent},
 ];

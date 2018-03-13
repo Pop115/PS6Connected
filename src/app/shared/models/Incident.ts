@@ -2,6 +2,7 @@ export enum Etat {nouveau, en_cours, fini}
 export enum Importance {faible, moyen, urgent, critique}
 export enum TypeIncident {panne, objet_perdu, nettoyage, achat}
 
+
 export class IncidentModel {
     id: number;
     type: TypeIncident;
