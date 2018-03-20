@@ -1,18 +1,18 @@
 <div class="container">
     <div class="col-lg">
+
         <form>
             <div class="form-group">
-                <label for="titreIncident">Titre incident</label>
-                <input type="text" class="form-control" id="titreIncident">
+                <label for="titre">Titre incident</label>
+                <input #titre type="text" class="form-control" id="titre">
             </div>
 
             <div class="form-group">
-               <label for="descriptionIncident">Description incident</label>
-                <textarea id="descriptionIncident" class="form-control" type="text"></textarea>
+               <label for="description">Description incident</label>
+                <textarea #description id="description" class="form-control" type="text"></textarea>
             </div>
-
         </form>
+        <button (click)="addIncident();" class="btn btn-primary">Envoyer</button>
 
-        <button class="btn btn-primary">Envoyer</button>
     </div>
 </div>
