@@ -1,29 +1,42 @@
-
-<div *ngIf="incidentList.length > 0">
-  <div class="col-lg-12" *ngFor="let incident of incidentList">
+<div class="container">
 
     <div class="row">
-      <div class="card">
-        <h5 class="card-header">{{incident.titre}}</h5>
-        <div class="card-body">
-          <header class="card-title">Auteur:{{incident.auteur}}</header>
-          <p class="card-text">{{incident.description}}</p>
-          <footer>{{incident.date}}</footer>
+        <div class="col-lg">
+            <button class="btn btn-primary" routerLink="/declaration">Déclarer un incident</button>
         </div>
-      </div>
     </div>
-    <!--
-    {{incident.id}} <br/>
-    {{incident.type}} <br/>
-    {{incident.auteur}} <br/>
-    {{incident.destinataires}} <br/>
-    {{incident.localisation}} <br/>
-    {{incident.etat}} <br/>
-    {{incident.importance}} <br/>
-    {{incident.titre}} <br/>
-    {{incident.description}} <br/>
-    {{incident.date}} <br/>
-    -->
 
-  </div>
+
+    <div class="row">
+        <div class="col-lg">
+            <h4>Vue des incidents</h4>
+            <div *ngIf="incidentList.length > 0">
+                <div class="col-lg-12" *ngFor="let incident of incidentList">
+
+                    <div class="row">
+                        <div class="card">
+                            <h5 class="card-header">{{incident.titre}}</h5>
+                            <div class="card-body">
+                                <header class="card-title">Auteur:{{incident.auteur}}</header>
+                                <p class="card-text">{{incident.description}}</p>
+                                <footer>{{incident.date}}</footer>
+                            </div>
+                        </div>
+                    </div>
+                    <!--
+                    {{incident.id}} <br/>
+                    {{incident.type}} <br/>
+                    {{incident.auteur}} <br/>
+                    {{incident.destinataires}} <br/>
+                    {{incident.localisation}} <br/>
+                    {{incident.etat}} <br/>
+                    {{incident.importance}} <br/>
+                    {{incident.titre}} <br/>
+                    {{incident.description}} <br/>
+                    {{incident.date}} <br/>
+                    -->
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
