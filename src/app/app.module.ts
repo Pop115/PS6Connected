@@ -10,13 +10,15 @@ import {IncidentService} from "./shared/services/incident.service";
 import {FormsModule} from "@angular/forms";
 import {LoginComponent} from "./login/login.component";
 import {ChooseUserComponent} from "./chooseUser/chooseUser.component";
+import {DeclarationComponent} from "./declaration/declaration.component";
 
 @NgModule({
     declarations: [
         AppComponent,
         IncidentListComponent,
         LoginComponent,
-        ChooseUserComponent
+        ChooseUserComponent,
+        DeclarationComponent
     ],
     imports: [
         BrowserModule,
