@@ -1,18 +1,42 @@
 <div class="container">
     <div class="col-lg">
+        <form method="post">
+            <div class="category_importance">
+                <select name="category_selector" class="category_selector">
+                    <option value="" selected>Catégorie</option>
+                    <option value="panne">Panne</option>
+                    <option value="incendie">Incendie</option>
+                    <option value="course">Course</option>
+                </select>
 
-        <form>
-            <div class="form-group">
-                <label for="titre">Titre incident</label>
-                <input #titre type="text" class="form-control" id="titre">
+                <select name="importance_selector" class="importance_selector">
+                    <option value="" selected>Importance</option>
+                    <option value="1">Critique</option>
+                    <option value="2">Moyen</option>
+                    <option value="3">Faible</option>
+                </select>
             </div>
 
-            <div class="form-group">
-               <label for="description">Description incident</label>
-                <textarea #description id="description" class="form-control" type="text"></textarea>
-            </div>
+
+            <label class="form_label" for="titre_incident">Titre incident</label>
+            <input class="form_input" type="text" id="titre_incident" name="titleIncident">
+
+            <!--<div class="date_heure">-->
+            <label class="form_label" for="date_selector">Date</label>
+            <input class="form_input" type="date" id="date_selector" placeholder="JJ/MM/YYY" name="dateSelector">
+
+            <label class="form_label" for="time_selector">Heure</label>
+            <input class="form_input" type="time" id="time_selector" name="timeSelector">
+            <!--</div>-->
+
+            <label class="form_label" for="localisation_incident">Localisation</label>
+            <input class="form_input" type="text" id="localisation_incident" name="localisationIncident">
+
+            <label class="form_label" for="description_incident">Description incident</label>
+            <textarea class="form_textarea" id="description_incident" type="text" name="descriptionIncident"></textarea>
+
+
+            <button class="btn btn-primary" type="submit">Envoyer</button>
         </form>
-        <button (click)="addIncident();" class="btn btn-primary">Envoyer</button>
-
     </div>
 </div>

@@ -1,0 +1,38 @@
+form {
+    padding-top: 8px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-gap: 16px;
+}
+
+.form_label {
+    grid-column: 1 / 2;
+    text-align: right;
+}
+
+.form_input, .btn, .form_textarea, .category_importance, .date_heure {
+    grid-column: 2 / 3;
+}
+
+.form_label, .form_input, .btn {
+    margin: 8px 0 8px 0;
+}
+
+.category_importance, .date_heure {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 16px;
+
+}
+
+.category_selector {
+    grid-column: 1 / 2;
+}
+
+.importance_selector, .time_form {
+    grid-column: 2 / 3;
+}
+
+.btn {
+    width: fit-content;
+}
