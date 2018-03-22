@@ -21,11 +21,21 @@ export class DeclarationComponent implements OnInit {
         console.log("test");
     }
 
-
-    addIncident() {
+    addIncident(titre: string, description: string, categorie: string, date, heure, etat, destinataire: string, importance: number, localisation: string) {
         var url = "http://localhost:3000/declaration";
         var method = "POST";
-        var postData = '{"title":"UnTitle"}';
+        var postData = {}
+        postData['titre'] = titre
+        postData['description'] = description
+        postData['categorie'] = categorie
+        postData['date'] = date
+        postData['heure'] = heure
+        postData['etat'] = etat
+        postData['destinataire'] = destinataire
+        postData['urgence'] = importance
+        postData['localisation'] = localisation
+        console.log(postData)
+        postData = JSON.stringify(postData)
         var shouldBeAsync = true;
         var request = new XMLHttpRequest();
 
