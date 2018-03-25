@@ -20,4 +20,27 @@ export class IncidentListComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  deleteIncident(id:number){
+      var url = "http://localhost:3000/suppression";
+      var method = "POST";
+      var postData = {};
+      postData['idincident'] = id;
+      console.log(postData);
+      postData = JSON.stringify(postData);
+      var shouldBeAsync = true;
+      var request = new XMLHttpRequest();
+      request.onload = function () {
+          var status = request.status;
+          var data = request.responseText;
+      };
+      request.open(method, url, shouldBeAsync);
+      request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+      request.send(postData);
+
+      this.incidentService.incidentList.subscribe(
+          (incidentList) => this.incidentList = incidentList
+      );
+      this.incidentService.getIncident();
+  }
 }

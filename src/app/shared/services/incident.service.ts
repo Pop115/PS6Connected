@@ -25,6 +25,7 @@ export class IncidentService {
 
     getIncident() {
         this.http.get<IncidentModel[]>(URL_SERVER + this.routeVue).subscribe((incidents) => this.incidentList.next(incidents));
+        console.log(this.incidentList);
     }
 
     /*

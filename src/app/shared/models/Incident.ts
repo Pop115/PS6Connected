@@ -4,13 +4,13 @@ export enum TypeIncident {panne, objet_perdu, nettoyage, achat}
 
 
 export class IncidentModel {
-    id: number;
+    idincident: number;
     type: TypeIncident;
     auteur: string;
     destinataires: Array<string>;
     localisation:string;
     etat: Etat;
-    importance: Importance;
+    urgence: Importance;
     titre: string;
     description: string;
     date: Date;
