@@ -29,13 +29,6 @@ export class IncidentService {
     }
 
     /*
-    addIncident(){
-        console.log("AJOUT INCIDENT");
-        var url = 'http://localhost:3000/declaration';
-        var data = {title:"titre", description:"description"};
-        this.http.post(url, data);
-    }
-
     addIncident (incident: IncidentModel): Observable<IncidentModel> {
         return this.http.post<IncidentModel>(this.routeDeclaration, incident, this.httpOptions).pipe(
             tap((incident: IncidentModel) => this.log(`added incident w/ id=${incident.id}`)),

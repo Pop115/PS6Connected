@@ -19,6 +19,7 @@ export class IncidentListComponent implements OnInit {
   }
 
   ngOnInit() {
+      console.log(localStorage.getItem('idpersonne'));
   }
 
   deleteIncident(id:number){
@@ -38,9 +39,10 @@ export class IncidentListComponent implements OnInit {
       request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
       request.send(postData);
 
-      this.incidentService.incidentList.subscribe(
-          (incidentList) => this.incidentList = incidentList
-      );
-      this.incidentService.getIncident();
+      this.incidentList = this.incidentList.filter(incident => incident.idincident !== id);
+
+
+
+
   }
 }

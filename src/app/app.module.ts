@@ -11,6 +11,7 @@ import {FormsModule} from "@angular/forms";
 import {LoginComponent} from "./login/login.component";
 import {ChooseUserComponent} from "./chooseUser/chooseUser.component";
 import {DeclarationComponent} from "./declaration/declaration.component";
+import {UserService} from "./shared/services/user.service";
 
 @NgModule({
     declarations: [
@@ -26,7 +27,7 @@ import {DeclarationComponent} from "./declaration/declaration.component";
         HttpClientModule,
         FormsModule
     ],
-    providers: [IncidentService],
+    providers: [IncidentService, UserService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

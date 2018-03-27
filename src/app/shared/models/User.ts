@@ -1,3 +1,7 @@
-export class User{
-    username: string;
+
+
+export class UserModel{
+    idpersonne: number;
+    nom: string;
+    prenom: string;
 }

@@ -15,7 +15,7 @@
                                 <label for="category_selector">Catégorie</label>
                                 <select #categorie id="category_selector" name="category_selector" class="form-control">
                                     <option value="panne">Panne</option>
-                                    <option value="incendie">Incendie</option>
+                                    <option value="incendie">Objet perdu</option>
                                     <option value="course">Course</option>
                                 </select>
                             </div>
@@ -100,12 +100,32 @@
                                   name="descriptionIncident"></textarea>
                     </div>
 
-                    <button (click)="addIncident(titre.value, description.value, categorie.value, date.value, heure.value, etat.value, destinataire.value, importance.value, localisation.value);" class="btn btn-primary">Envoyer
+                    <button data-toggle="modal" data-target="#modalDeclaration" (click)="addIncident(titre.value, description.value, categorie.value, date.value, heure.value, etat.value, destinataire.value, importance.value, localisation.value);" class="btn btn-primary">Envoyer
                     </button>
                     </form>
                 </div>
             </div>
 
 
+        </div>
+    </div>
+
+    <div id="modalDeclaration" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Incident déclaré</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Votre incident a bien été déclaré</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" routerLink="/declaration">Déclarer un autre incident</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" routerLink="/incidents">Retourner à la liste d'incidents</button>
+                </div>
+            </div>
         </div>
     </div>
