@@ -17,16 +17,18 @@
                         <div class="col-lg-12">
                             <div class="card">
 
-                                <h5 *ngIf="incident.urgence == 1" class="card-header">{{incident.titre}}</h5>
-                                <h5 *ngIf="incident.urgence == 2" class=" bg-warning card-header">{{incident.titre}}</h5>
-                                <h5 *ngIf="incident.urgence >= 3" class=" bg-danger card-header">{{incident.titre}}</h5>
+                                <h5 *ngIf="incident.urgence == 1" class="card-header">Faible - {{incident.titre}}</h5>
+                                <h5 *ngIf="incident.urgence == 2" class=" bg-warning card-header">Moyen - {{incident.titre}}</h5>
+                                <h5 *ngIf="incident.urgence >= 3" class=" bg-danger card-header">Critique - {{incident.titre}}</h5>
 
                                 <div class="card-body">
-                                    <header class="card-title font-weight-bold">Par {{incident.prenom}} {{incident.nom}} </header>
+                                    <header class="card-title font-weight-bold">Par {{incident.prenom}} {{incident.nom}}</header>
+                                    <button data-toggle="tooltip" title="Modifier" data-placement="bottom" class="btn btn-outline-secondary float-right"><span class="oi oi-cog"></span></button>
+                                    <!--<p class="card-text">Etat: {{incident.etat}}</p>-->
                                     <p class="card-text">{{incident.description}}</p>
                                     <p class="card-text">Localisation: {{incident.localisation}}</p>
-                                    <button (click)="deleteIncident(incident.idincident)" data-toggle="tooltip" title="Supprimer" data-placement="bottom" class="btn float-right"><span class="oi oi-trash"></span></button>
-                                    <footer>Date: {{incident.date | date}}</footer>
+                                    <button (click)="deleteIncident(incident.idincident)" data-toggle="tooltip" title="Supprimer" data-placement="bottom" class="btn btn-outline-danger float-right"><span class="oi oi-trash"></span></button>
+                                    <footer>Date: {{incident.date | date}} à {{incident.heure}}</footer>
                                 </div>
                             </div>
                         </div>

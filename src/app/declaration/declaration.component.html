@@ -15,7 +15,7 @@
                                 <label for="category_selector">Catégorie</label>
                                 <select #categorie id="category_selector" name="category_selector" class="form-control">
                                     <option value="panne">Panne</option>
-                                    <option value="incendie">Objet perdu</option>
+                                    <option value="objet perdu">Objet perdu</option>
                                     <option value="course">Course</option>
                                 </select>
                             </div>
@@ -82,9 +82,13 @@
 
                         <div class="offset-lg-2 col-lg-5">
                             <div class="form-group">
-                                <label for="localisation_incident">Localisation</label>
-                                <input #localisation class="form-control" type="text" id="localisation_incident"
-                                       name="localisationIncident">
+                                <label for="localisation_selector">Localisation</label>
+                                <select #localisation id="localisation_selector" name="localisation_selector" class="form-control">
+                                    <option value="Chambre">Chambre</option>
+                                    <option value="Salon">Salon</option>
+                                    <option value="Entrée">Entrée</option>
+                                    <option value="Garage">Garage</option>
+                                </select>
                             </div>
                         </div>
                     </div>
@@ -123,7 +127,7 @@
                     <p>Votre incident a bien été déclaré</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" routerLink="/declaration">Déclarer un autre incident</button>
+                    <button type="button" class="btn btn-primary" onClick="location.reload();">Déclarer un autre incident</button>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal" routerLink="/incidents">Retourner à la liste d'incidents</button>
                 </div>
             </div>
