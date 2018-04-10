@@ -1,135 +1,126 @@
 <div class="container">
-    <div class="col-lg">
+	<div class="col-lg">
 
-        <div class="mainTitle row">
-            <h1>Déclaration d'incidents</h1>
-        </div>
+		<div class="mainTitle row">
+			<h1>Déclaration d'incidents</h1>
+		</div>
 
-        <div class="row">
-            <div class="col-lg">
-                <form>
+		<div class="row">
+			<div class="col-lg">
+				<form>
 
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <div class="form-group">
-                                <label for="category_selector">Catégorie</label>
-                                <select #categorie id="category_selector" name="category_selector" class="form-control">
-                                    <option value="panne">Panne</option>
-                                    <option value="objet perdu">Objet perdu</option>
-                                    <option value="course">Course</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+					<div class="row">
+						<div class="col-lg-5">
+							<div class="form-group">
+								<label for="category_selector">Catégorie</label>
+								<select #categorie id="category_selector" name="category_selector" class="form-control">
+									<option value="panne">Panne</option>
+									<option value="objet perdu">Objet perdu</option>
+									<option value="course">Course</option>
+								</select>
+							</div>
+						</div>
 
-
-
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <div class="form-group">
-                                <label class="form_label" for="date_selector">Date</label>
-                                <input #date class="form-control" type="date" id="date_selector" placeholder="JJ/MM/YYY"
-                                       name="dateSelector">
-                            </div>
-                        </div>
-
-                        <div class="offset-lg-2 col-lg-5">
-                            <div class="form-group">
-                                <label class="form_label" for="time_selector">Heure</label>
-                                <input #heure class="form-control" type="time" id="time_selector" name="timeSelector">
-                            </div>
-                        </div>
-                    </div>
+						<div class="offset-lg-2 col-lg-5">
+							<div class="form-group">
+								<label for="destinataire">Destinataire</label>
+								<select #destinataire id="destinataire" name="destinataire" class="form-control">
+									<option value="pere">Père</option>
+									<option value="mere">Mère</option>
+									<option value="fils">Fils</option>
+								</select>
+							</div>
+						</div>
+					</div>
 
 
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <div class="form-group">
-                                <label for="etat">Etat</label>
-                                <select #etat id="etat" name="etat" class="form-control">
-                                    <option value="Valide">Validé</option>
-                                    <option value="Accepte">Accepté</option>
-                                    <option value="Refuse">Refusé</option>
-                                </select>
-                            </div>
-                        </div>
+					<div class="row">
+						<div class="col-lg-5">
+							<div class="form-group">
+								<label class="form_label" for="date_selector">Date</label>
+								<input #date class="form-control" type="date" id="date_selector" placeholder="JJ/MM/YYY"
+									   name="dateSelector">
+							</div>
+						</div>
+
+						<div class="offset-lg-2 col-lg-5">
+							<div class="form-group">
+								<label class="form_label" for="time_selector">Heure</label>
+								<input #heure class="form-control" type="time" id="time_selector" name="timeSelector">
+							</div>
+						</div>
+					</div>
 
 
+					<div class="row">
+						<div class="col-lg-5">
+							<div class="form-group">
+								<label for="importance_selector">Importance</label>
+								<select #importance id="importance_selector" name="importance_selector"
+										class="form-control">
+									<option value=1>Faible</option>
+									<option value=2>Moyen</option>
+									<option value=3>Critique</option>
+								</select>
+							</div>
+						</div>
 
-                        <div class="offset-lg-2 col-lg-5">
-                            <div class="form-group">
-                                <label for="destinataire">Destinataire</label>
-                                <select #destinataire id="destinataire" name="destinataire" class="form-control">
-                                    <option value="pere">Père</option>
-                                    <option value="mere">Mère</option>
-                                    <option value="fils">Fils</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+						<div class="offset-lg-2 col-lg-5">
+							<div class="form-group">
+								<label for="localisation_selector">Localisation</label>
+								<select #localisation id="localisation_selector" name="localisation_selector"
+										class="form-control">
+									<option value="Chambre">Chambre</option>
+									<option value="Salon">Salon</option>
+									<option value="Entrée">Entrée</option>
+									<option value="Garage">Garage</option>
+								</select>
+							</div>
+						</div>
+					</div>
 
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <div class="form-group">
-                                <label for="importance_selector">Importance</label>
-                                <select #importance id="importance_selector" name="importance_selector" class="form-control">
-                                    <option value=1>Faible</option>
-                                    <option value=2>Moyen</option>
-                                    <option value=3>Critique</option>
-                                </select>
-                            </div>
-                        </div>
+					<div class="form-group">
+						<label class="form_label" for="titre_incident">Titre incident</label>
+						<input #titre class="form-control" type="text" id="titre_incident" name="titleIncident">
+					</div>
 
-                        <div class="offset-lg-2 col-lg-5">
-                            <div class="form-group">
-                                <label for="localisation_selector">Localisation</label>
-                                <select #localisation id="localisation_selector" name="localisation_selector" class="form-control">
-                                    <option value="Chambre">Chambre</option>
-                                    <option value="Salon">Salon</option>
-                                    <option value="Entrée">Entrée</option>
-                                    <option value="Garage">Garage</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+					<div class="form-group">
+						<label class="form_label" for="description_incident">Description incident</label>
+						<textarea #description class="form-control" id="description_incident" type="text"
+								  name="descriptionIncident"></textarea>
+					</div>
 
-                    <div class="form-group">
-                        <label class="form_label" for="titre_incident">Titre incident</label>
-                        <input #titre class="form-control" type="text" id="titre_incident" name="titleIncident">
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form_label" for="description_incident">Description incident</label>
-                        <textarea #description class="form-control" id="description_incident" type="text"
-                                  name="descriptionIncident"></textarea>
-                    </div>
-
-                    <button data-toggle="modal" data-target="#modalDeclaration" (click)="addIncident(titre.value, description.value, categorie.value, date.value, heure.value, etat.value, destinataire.value, importance.value, localisation.value);" class="btn btn-primary">Envoyer
-                    </button>
-                    </form>
-                </div>
-            </div>
+					<button data-toggle="modal" data-target="#modalDeclaration"
+							(click)="addIncident(titre.value, description.value, categorie.value, date.value, heure.value, destinataire.value, importance.value, localisation.value);"
+							class="btn btn-primary">Envoyer
+					</button>
+				</form>
+			</div>
+		</div>
 
 
-        </div>
-    </div>
+	</div>
+</div>
 
-    <div id="modalDeclaration" class="modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Incident déclaré</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>Votre incident a bien été déclaré</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" onClick="location.reload();">Déclarer un autre incident</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" routerLink="/incidents">Retourner à la liste d'incidents</button>
-                </div>
-            </div>
-        </div>
-    </div>
+<div id="modalDeclaration" class="modal" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Incident déclaré</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<p>Votre incident a bien été déclaré</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" onClick="location.reload();">Déclarer un autre incident
+				</button>
+				<button type="button" class="btn btn-secondary" data-dismiss="modal" routerLink="/incidents">Retourner à
+					la liste d'incidents
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

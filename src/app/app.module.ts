@@ -12,6 +12,8 @@ import {LoginComponent} from "./login/login.component";
 import {ChooseUserComponent} from "./chooseUser/chooseUser.component";
 import {DeclarationComponent} from "./declaration/declaration.component";
 import {UserService} from "./shared/services/user.service";
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {ParametresComponent} from "./parametres/parametres.component";
 
 @NgModule({
     declarations: [
@@ -19,13 +21,15 @@ import {UserService} from "./shared/services/user.service";
         IncidentListComponent,
         LoginComponent,
         ChooseUserComponent,
-        DeclarationComponent
+        DeclarationComponent,
+        ParametresComponent
     ],
     imports: [
         BrowserModule,
         RouterModule.forRoot(routes),
         HttpClientModule,
-        FormsModule
+        FormsModule,
+        NgbModule.forRoot()
     ],
     providers: [IncidentService, UserService],
     bootstrap: [AppComponent]

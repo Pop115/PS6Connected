@@ -3,11 +3,13 @@ import {Router} from "@angular/router";
 
 @Component({
     selector: "app-login",
-    templateUrl: "./login.component.html",
-    styleUrls: ["./login.component.css"]
+    templateUrl: "./parametres.component.html",
+    styleUrls: ["./parametres.component.css"]
 })
-export class LoginComponent implements OnInit {
+
+export class ParametresComponent implements OnInit {
 
     ngOnInit() {
     }
+
 }

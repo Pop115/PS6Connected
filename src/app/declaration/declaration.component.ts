@@ -22,7 +22,9 @@ export class DeclarationComponent implements OnInit {
         console.log("test");
     }
 
-    addIncident(titre: string, description: string, categorie: string, date, heure, etat, destinataire: string, importance: number, localisation: string) {
+    addIncident(titre: string, description: string, categorie: string, date, heure, destinataire: string, importance: number, localisation: string) {
+
+
         var url = "http://localhost:3000/declaration";
         var method = "POST";
         var postData = {};
@@ -31,7 +33,6 @@ export class DeclarationComponent implements OnInit {
         postData['categorie'] = categorie;
         postData['date'] = date;
         postData['heure'] = heure;
-        postData['etat'] = etat;
         postData['destinataire'] = destinataire;
         postData['urgence'] = importance;
         postData['localisation'] = localisation;

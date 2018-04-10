@@ -28,13 +28,10 @@ export class IncidentService {
         console.log(this.incidentList);
     }
 
-    /*
+
     addIncident (incident: IncidentModel): Observable<IncidentModel> {
-        return this.http.post<IncidentModel>(this.routeDeclaration, incident, this.httpOptions).pipe(
-            tap((incident: IncidentModel) => this.log(`added incident w/ id=${incident.id}`)),
-            catchError(this.handleError<IncidentModel>('addIncident'))
-        );
+        return this.http.post<IncidentModel>(this.routeDeclaration, incident, this.httpOptions);
     }
-    */
+
 
 }

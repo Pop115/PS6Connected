@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {UserService} from "../shared/services/user.service";
 import {UserModel} from "../shared/models/User";
+import {Observable} from "rxjs/Observable";
 
 @Component({
     selector: "app-chooseUser",
@@ -12,10 +13,11 @@ export class ChooseUserComponent implements OnInit {
     public userList: UserModel[] = [];
 
     constructor(private userService: UserService) {
-        this.userService.userList.subscribe(
-            (userList) => this.userList = userList
-        );
-        this.userService.getUsers();
+
+       this.userService.getUsers().subscribe(
+           (userList) => this.userList = userList
+       );
+
     }
 
     ngOnInit() {
