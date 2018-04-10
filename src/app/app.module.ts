@@ -12,8 +12,9 @@ import {LoginComponent} from "./login/login.component";
 import {ChooseUserComponent} from "./chooseUser/chooseUser.component";
 import {DeclarationComponent} from "./declaration/declaration.component";
 import {UserService} from "./shared/services/user.service";
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {ParametresComponent} from "./parametres/parametres.component";
+import { PageChoixTypeComponent } from "./page-choix-type/page-choix-type.component";
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import {ParametresComponent} from "./parametres/parametres.component";
         LoginComponent,
         ChooseUserComponent,
         DeclarationComponent,
-        ParametresComponent
+        ParametresComponent,
+        PageChoixTypeComponent
     ],
     imports: [
         BrowserModule,
