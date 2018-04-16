@@ -1,6 +1,11 @@
-.mainTitle{
-    margin-bottom: 50px
+.mainTitle {
+	margin-bottom: 50px
 }
+
+.destinataireDiv {
+	margin: 5px 5px 5px 10px;
+}
+
 /*
 form {
     padding-top: 8px;

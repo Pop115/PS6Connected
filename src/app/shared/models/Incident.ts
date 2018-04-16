@@ -9,7 +9,7 @@ export class IncidentModel {
     idincident: number;
     type: TypeIncident;
     auteur: string;
-    destinataires: Array<string>;
+    destinataires: string[];
     localisation: string;
     etat: Etat;
     urgence: Importance;

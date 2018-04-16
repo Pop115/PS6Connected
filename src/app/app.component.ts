@@ -12,5 +12,8 @@ export class AppComponent {
 
     constructor(public router: Router) {
         this.title = "MaisonDuBonheur";
+
     }
+
+
 }

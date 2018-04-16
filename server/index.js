@@ -20,7 +20,7 @@ const client = new Client({
 
 app.get('/incidents', async (req, res) => {
 	try {
-		const result = await client.query('SELECT * FROM INCIDENT JOIN personne on idauteur = idpersonne ');
+		const result = await client.query('SELECT * FROM INCIDENT JOIN personne on idauteur = idpersonne');
 		console.log("incidents:  " + result.rows[0].message);
 		res.status(200).json(result.rows);
 	}
@@ -28,6 +28,19 @@ app.get('/incidents', async (req, res) => {
 		res.status(500).json(err);
 	}
 });
+
+app.get('/allocations', async (req, res) => {
+	try {
+		const result = await client.query('SELECT DISTINCT * FROM allocation JOIN personne ON personne.idpersonne = allocation.idpersonne ');
+		console.log("incidents:  " + result.rows[0].message);
+		res.status(200).json(result.rows);
+	}
+	catch (err) {
+		res.status(500).json(err);
+	}
+});
+
+
 
 /*	Insertion	*/
 app.put('/update', async (req, res) => {
@@ -66,6 +79,21 @@ client
 		console.log(err);
 	});
 
+/*
+app.post('/allocations', async (req, res) => {
+	try {
+		var json = req.body;
+		console.log("----allocations");
+		console.log(json["idincident"]);
+		const result = await client.query("SELECT nom, prenom FROM allocation JOIN personne ON personne.idpersonne = allocation.idpersonne WHERE idincident = '"+json["idincident"]+"'");
+		res.status(200).json(result.rows);
+	}
+	catch (err) {
+		res.status(500).json(err);
+	}
+});
+*/
+
 app.post('/declaration', async (req, res) => {
 	console.log("hello");
 	try {
@@ -80,18 +108,25 @@ app.post('/declaration', async (req, res) => {
 				.replace(/"/g, "\\\"");
 		}
 		console.log(json);
-		*/
+*/
 
 		var query = "INSERT INTO incident " +
 			"(titre, description, type, urgence, date, heure, duree, etat, localisation, idAuteur)" +
 			" VALUES ('" + json['titre'] + "','" + json['description'] + "', '" + json['categorie'] + "', "
 			+ json['urgence'] + ", '" + json['date'] + "', '" + json['heure'] + "', 5, 'Nouveau', '"
-			+ json['localisation'] + "', '" + json['idauteur'] + "' )"
-
-		console.log(query)
+			+ json['localisation'] + "', '" + json['idauteur'] + "' )";
 		const result = await client.query(query);
 
-		console.log(result);
+
+		const result2 = await client.query("SELECT idincident FROM INCIDENT WHERE titre = '" + json["titre"] + "' AND description = '" + json["description"] + "'");
+		var idincidentcreated = (result2.rows[0].idincident);
+
+		for (let destinataire of json["destinataires"]) {
+			var someQuery = "INSERT INTO allocation (idincident, idpersonne) VALUES ('" + idincidentcreated + "', '" + destinataire + "')";
+			const resultFinalQuery = await client.query(someQuery);
+		}
+
+
 		res.status(200).json(result.rows);
 	}
 	catch (err) {
@@ -105,10 +140,12 @@ app.post('/suppression', async (req, res) => {
 
 		var json = req.body
 		console.log(req.body);
-		var query = "DELETE FROM incident WHERE idincident = " + json['idincident']
+		var query2 = "DELETE FROM allocation WHERE idincident = " + json['idincident'];
+		var query = "DELETE FROM incident WHERE idincident = " + json['idincident'];
 		console.log(query);
+		const result2 = await client.query(query2);
 		const result = await client.query(query);
-		res.status(200).json(result.rows);
+		res.status(200).json(result2.rows);
 
 	} catch (err) {
 		res.status(500).json(err);

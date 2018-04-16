@@ -12,7 +12,9 @@
 					<div class="row">
 						<div class="col-lg-5">
 							<div class="form-group">
-								<label for="category_selector">Catégorie</label>
+								<label for="category_selector">Catégorie
+									<span class="fa fa-question-circle" data-trigger="hover" data-toggle="popover" data-content="Catégorie de l'incident"></span>
+								</label>
 								<select #categorie id="category_selector" name="category_selector" class="form-control">
 									<option value="panne">Panne</option>
 									<option value="objet perdu">Objet perdu</option>
@@ -23,21 +25,43 @@
 
 						<div class="offset-lg-2 col-lg-5">
 							<div class="form-group">
-								<label for="destinataire">Destinataire souhaité</label>
+								<label>Destinataires
+									<span class="fa fa-question-circle" data-trigger="hover" data-toggle="popover" data-content="Personnes qui devront résoudre l'incident"></span>
+								</label>
+								<!--
 								<select #destinataire id="destinataire" name="destinataire" class="form-control">
 									<option value="pere">Père</option>
 									<option value="mere">Mère</option>
 									<option value="fils">Fils</option>
 								</select>
+								-->
+								<div class="dropdown">
+									<button class="btn btn-outline-dark dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+										Destinataires
+									</button>
+									<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+										<div *ngFor="let user of userList" class="form-check destinataireDiv">
+											<input (change)="onChange(user.idpersonne, $event.target.checked)" class="form-check-input" type="checkbox" value="" name="destinataire" #destinataire>
+											<label class="form-check-label">
+												{{user.nom}} {{user.prenom}}
+											</label>
+										</div>
+
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
 
 
+
 					<div class="row">
 						<div class="col-lg-5">
 							<div class="form-group">
-								<label class="form_label" for="date_selector">Date de l'incident</label>
+								<label class="form_label" for="date_selector">Date de l'incident
+									<span class="fa fa-question-circle" data-trigger="hover" data-toggle="popover" data-content="Date à laquelle est survenu l'incident"></span>
+								</label>
 								<input #date class="form-control" type="date" id="date_selector" placeholder="JJ/MM/YYY"
 									   name="dateSelector">
 							</div>
@@ -45,7 +69,9 @@
 
 						<div class="offset-lg-2 col-lg-5">
 							<div class="form-group">
-								<label class="form_label" for="time_selector">Heure</label>
+								<label class="form_label" for="time_selector">Heure de l'incident
+									<span class="fa fa-question-circle" data-trigger="hover" data-toggle="popover" data-content="Heure à laquelle est survenu l'incident"></span>
+								</label>
 								<input #heure class="form-control" type="time" id="time_selector" name="timeSelector">
 							</div>
 						</div>
@@ -55,7 +81,9 @@
 					<div class="row">
 						<div class="col-lg-5">
 							<div class="form-group">
-								<label for="importance_selector">Importance</label>
+								<label for="importance_selector">Importance
+									<span class="fa fa-question-circle" data-trigger="hover" data-toggle="popover" data-content="Importance de l'incident"></span>
+								</label>
 								<select #importance id="importance_selector" name="importance_selector"
 										class="form-control">
 									<option value=1>Faible</option>
@@ -67,7 +95,9 @@
 
 						<div class="offset-lg-2 col-lg-5">
 							<div class="form-group">
-								<label for="localisation_selector">Localisation</label>
+								<label for="localisation_selector">Localisation
+									  <span class="fa fa-question-circle" data-trigger="hover" data-toggle="popover" data-content="Lieu de l'incident"></span>
+								</label>
 								<select #localisation id="localisation_selector" name="localisation_selector"
 										class="form-control">
 									<option value="Chambre">Chambre</option>
@@ -80,18 +110,22 @@
 					</div>
 
 					<div class="form-group">
-						<label class="form_label" for="titre_incident">Titre incident</label>
+						<label class="form_label" for="titre_incident">Titre incident
+							<span class="fa fa-question-circle" data-trigger="hover" data-toggle="popover" data-content="(Obligatoire) Donnez un titre à votre incident"></span>
+						</label>
 						<input #titre class="form-control" type="text" id="titre_incident" name="titleIncident">
 					</div>
 
 					<div class="form-group">
-						<label class="form_label" for="description_incident">Description incident</label>
+						<label class="form_label" for="description_incident">Description incident
+							<span class="fa fa-question-circle" data-trigger="hover" data-toggle="popover" data-content="(Obligatoire) Décrivez l'incident"></span>
+						</label>
 						<textarea #description class="form-control" id="description_incident" type="text"
 								  name="descriptionIncident"></textarea>
 					</div>
 
 					<button data-toggle="modal" data-target="#modalDeclaration"
-							(click)="addIncident(titre.value, description.value, categorie.value, date.value, heure.value, destinataire.value, importance.value, localisation.value);"
+							(click)="addIncident(titre.value, description.value, categorie.value, date.value, heure.value, importance.value, localisation.value);"
 							class="btn btn-primary">Envoyer
 					</button>
 
@@ -140,7 +174,7 @@
 				<p id="errorMessage">Erreur lors de la déclaration de l'incident</p>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-primary">Réessayer
+				<button type="button" class="btn btn-danger">Réessayer
 				</button>
 				<button type="button" class="btn btn-secondary" data-dismiss="modal" routerLink="/incidents">Retourner à
 					la liste d'incidents

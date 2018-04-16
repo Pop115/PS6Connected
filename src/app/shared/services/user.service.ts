@@ -52,7 +52,7 @@ export class UserService {
 
         return this.http.get<UserModel>(this.usersUrl).pipe(
             tap(_ => console.log(`fetched user idpersonne=${idpersonne}`)),
-            catchError(this.handleError<UserModel>(`getHero idpersonne=${idpersonne}`))
+            catchError(this.handleError<UserModel>(`getPersonne idpersonne=${idpersonne}`))
         );
 
     }

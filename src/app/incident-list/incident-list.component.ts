@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {IncidentModel} from "../shared/models/Incident";
 import {IncidentService} from "../shared/services/incident.service";
+import {UserModel} from "../shared/models/User";
 
 @Component({
     selector: "app-incident-list",
@@ -10,12 +11,25 @@ import {IncidentService} from "../shared/services/incident.service";
 export class IncidentListComponent implements OnInit {
 
     public incidentList: IncidentModel[] = [];
+    public allocations: Object[] = [];
 
     constructor(private incidentService: IncidentService) {
         this.incidentService.incidentList.subscribe(
             (incidentList) => this.incidentList = incidentList
         );
         this.incidentService.getIncident();
+
+
+
+        this.incidentService.allocationsList.subscribe(
+            (alloc) => {
+                console.log(alloc);
+                this.allocations = alloc
+            }
+        );
+
+
+        this.incidentService.getAllocationsGet();
     }
 
     ngOnInit() {

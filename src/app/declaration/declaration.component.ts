@@ -1,6 +1,9 @@
 import {Component, OnInit} from "@angular/core";
 import {IncidentService} from "../shared/services/incident.service";
 import {HttpClient} from "@angular/common/http";
+import {UserModel} from "../shared/models/User";
+import {UserService} from "../shared/services/user.service";
+import {FormArray, FormControl} from "@angular/forms";
 
 
 @Component({
@@ -12,8 +15,17 @@ import {HttpClient} from "@angular/common/http";
 
 export class DeclarationComponent implements OnInit {
 
-    constructor(private incidentService: IncidentService, private http: HttpClient) {
+    public userList: UserModel[] = [];
+    public destinataires: string[] = [];
+
+    constructor(private incidentService: IncidentService, private http: HttpClient, private userService: UserService) {
         this.incidentService = incidentService;
+
+        this.userService.getUsers().subscribe(
+            (userList) => this.userList = userList
+        );
+
+
     }
 
     ngOnInit() {
@@ -25,7 +37,19 @@ export class DeclarationComponent implements OnInit {
         $("#modalDeclaration").modal("hide");
     }
 
-    addIncident(titre: string, description: string, categorie: string, date, heure, destinataire: string, importance: number, localisation: string) {
+    onChange(personne:string, isChecked: boolean) {
+
+        if(isChecked) {
+            this.destinataires.push(personne);
+        } else {
+            let index = this.destinataires.findIndex(x => x == personne)
+            this.destinataires.splice(index,1);
+        }
+    }
+
+
+    addIncident(titre: string, description: string, categorie: string, date, heure, importance: number, localisation: string) {
+        console.log(this.destinataires);
 
 
         const url = "http://localhost:3000/declaration";
@@ -36,7 +60,7 @@ export class DeclarationComponent implements OnInit {
         postData["categorie"] = categorie;
         postData["date"] = date;
         postData["heure"] = heure;
-        postData["destinataire"] = destinataire;
+        postData["destinataires"] = this.destinataires;
         postData["urgence"] = importance;
         postData["localisation"] = localisation;
         postData["idauteur"] = parseInt(localStorage.getItem("idpersonne"), 10);
@@ -58,6 +82,7 @@ export class DeclarationComponent implements OnInit {
         request.open(method, url, shouldBeAsync);
         request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         request.send(postData);
+
 
     }
 

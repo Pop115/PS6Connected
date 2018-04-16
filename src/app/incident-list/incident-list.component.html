@@ -25,6 +25,11 @@
                                     <header class="card-title font-weight-bold">Par {{incident.prenom}} {{incident.nom}}</header>
                                     <button data-toggle="tooltip" title="Modifier" data-placement="bottom" class="btn btn-outline-secondary float-right"><span class="oi oi-cog"></span></button>
                                     <!--<p class="card-text">Etat: {{incident.etat}}</p>-->
+
+                                    <p>Destiné à <span *ngFor="let alloc of allocations">
+                                        <span *ngIf="alloc.idincident == incident.idincident">{{alloc.nom}} {{alloc.prenom}}</span>
+                                    </span></p>
+
                                     <p class="card-text">{{incident.description}}</p>
                                     <p class="card-text">Localisation: {{incident.localisation}}</p>
                                     <button (click)="showModalDelete(incident.idincident)" data-toggle="tooltip" title="Supprimer" data-placement="bottom" class="btn btn-outline-danger float-right"><span class="oi oi-trash"></span></button>
