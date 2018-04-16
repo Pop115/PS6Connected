@@ -19,18 +19,26 @@ export class IncidentListComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log(localStorage.getItem("idpersonne"));
+        console.log(localStorage.getItem('idpersonne'));
     }
 
-    deleteIncident(id: number) {
+    showModalDelete(id: number) {
+      $("#modalConfirm").modal("show");
+      $("#confirmDelete").data("idincident", id);
+    }
+
+
+
+    deleteIncident() {
+        const id = $("#confirmDelete").data("idincident");
         const url = "http://localhost:3000/suppression";
         const method = "POST";
         let postData = {};
         postData["idincident"] = id;
         console.log(postData);
         postData = JSON.stringify(postData);
-        const shouldBeAsync = true;
-        const request = new XMLHttpRequest();
+        var shouldBeAsync = true;
+        var request = new XMLHttpRequest();
         request.onload = function () {
             const status = request.status;
             const data = request.responseText;

@@ -1,9 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {IncidentService} from "../shared/services/incident.service";
-import {IncidentModel} from "../shared/models/Incident";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Observable} from "rxjs/Observable";
-import * as $ from "jquery";
+import {HttpClient} from "@angular/common/http";
+
 
 @Component({
     selector: "app-declaration",
@@ -19,7 +17,12 @@ export class DeclarationComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log("test");
+
+    }
+
+    clearForm(){
+        $("#formulaire").find("input, textarea").val("");
+        $("#modalDeclaration").modal("hide");
     }
 
     addIncident(titre: string, description: string, categorie: string, date, heure, destinataire: string, importance: number, localisation: string) {
@@ -45,12 +48,15 @@ export class DeclarationComponent implements OnInit {
         request.onload = function () {
             const status = request.status;
             const data = request.responseText;
+            console.log(status);
+            if(status == 200)
+                $("#modalDeclaration").modal("show");
+            else
+                $("#modalError").modal("show");
         };
 
         request.open(method, url, shouldBeAsync);
-
         request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-
         request.send(postData);
 
     }

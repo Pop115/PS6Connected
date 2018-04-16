@@ -27,7 +27,7 @@
                                     <!--<p class="card-text">Etat: {{incident.etat}}</p>-->
                                     <p class="card-text">{{incident.description}}</p>
                                     <p class="card-text">Localisation: {{incident.localisation}}</p>
-                                    <button (click)="deleteIncident(incident.idincident)" data-toggle="tooltip" title="Supprimer" data-placement="bottom" class="btn btn-outline-danger float-right"><span class="oi oi-trash"></span></button>
+                                    <button (click)="showModalDelete(incident.idincident)" data-toggle="tooltip" title="Supprimer" data-placement="bottom" class="btn btn-outline-danger float-right"><span class="oi oi-trash"></span></button>
                                     <footer>Date: {{incident.date | date}} à {{incident.heure}}</footer>
                                 </div>
                             </div>
@@ -39,4 +39,31 @@
             </div>
         </div>
     </div>
+
+
+
+    <div id="modalConfirm" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Suppression d'incident</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Voulez vous vraiment supprimer cet incident?</p>
+                </div>
+                <div class="modal-footer">
+                    <button data-dismiss="modal" id="confirmDelete" data-idincident="" type="button" (click)="deleteIncident()" class="btn btn-danger">Supprimer</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
 </div>

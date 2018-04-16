@@ -1,7 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {UserService} from "../shared/services/user.service";
 import {UserModel} from "../shared/models/User";
-import {Observable} from "rxjs/Observable";
 
 @Component({
     selector: "app-chooseUser",
@@ -24,6 +23,10 @@ export class ChooseUserComponent implements OnInit {
 
     }
 
+    chooseUser(userid:number){
+        localStorage.setItem('idpersonne', userid.toString());
+    }
+    
     ngOnInit() {
     }
 

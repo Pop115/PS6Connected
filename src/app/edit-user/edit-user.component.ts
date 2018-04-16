@@ -13,7 +13,8 @@ export class EditUserComponent implements OnInit {
     constructor(private userService: UserService) {
         // this.userService.user.subscribe((user) => this.user = user);
         console.log(this.user);
-        this.userService.getUserById(parseInt(localStorage.getItem("idpersonne"), 10));
+        var truc = this.userService.getUserById(parseInt(localStorage.getItem("idpersonne"), 10));
+        console.log(truc);
 
     }
 

@@ -18,3 +18,19 @@ export class IncidentModel {
     date: Date;
 
 }
+
+/*
+
+export class IncidentModel {
+    idincident: number;
+    titre: string;
+    description: string;
+    categorie: string;
+    date: any;
+    heure: any;
+    destinataire: string;
+    importance: number;
+    localisation: string;
+}
+
+ */

@@ -5,7 +5,6 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {IncidentModel} from "../models/Incident";
 import {URL_SERVER} from "../constants/urls";
 import {Observable} from "rxjs/Observable";
-import {tap, catchError} from "rxjs/operators";
 
 @Injectable()
 export class IncidentService {

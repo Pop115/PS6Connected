@@ -16,6 +16,9 @@ import {ParametresComponent} from "./parametres/parametres.component";
 import {EditUserComponent} from "./edit-user/edit-user.component";
 import {PageChoixTypeComponent} from "./page-choix-type/page-choix-type.component";
 
+import * as $ from 'jquery';
+import * as bootstrap from 'bootstrap';
+
 @NgModule({
     declarations: [
         AppComponent,
