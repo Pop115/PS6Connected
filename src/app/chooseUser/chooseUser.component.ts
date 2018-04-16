@@ -12,18 +12,19 @@ export class ChooseUserComponent implements OnInit {
 
     public userList: UserModel[] = [];
 
+    static chooseUser(userid: number) {
+        localStorage.setItem("idpersonne", userid.toString());
+    }
+
     constructor(private userService: UserService) {
 
-       this.userService.getUsers().subscribe(
-           (userList) => this.userList = userList
-       );
+        this.userService.getUsers().subscribe(
+            (userList) => this.userList = userList
+        );
 
     }
 
     ngOnInit() {
     }
 
-    chooseUser(userid:number){
-        localStorage.setItem('idpersonne', userid.toString());
-    }
 }

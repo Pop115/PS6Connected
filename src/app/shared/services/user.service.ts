@@ -1,5 +1,3 @@
-
-
 import {Injectable} from "@angular/core";
 import {Observable} from "rxjs/Observable";
 import {UserModel} from "../models/User";
@@ -12,12 +10,17 @@ import {of} from "rxjs/observable/of";
 export class UserService {
 
     public userList: Observable<UserModel[]>;
+    public user: Observable<UserModel>;
+
 
     private routeVue = "/chooseUser";
+    private usersUrl: "localhost:3000/getUserById";
 
 
     constructor(private http: HttpClient) {
         this.userList = new Observable<UserModel[]>();
+        this.user = new Observable<UserModel>();
+
     }
 
     getUsers(): Observable<UserModel[]> {
@@ -25,12 +28,37 @@ export class UserService {
         return this.http.get<UserModel[]>(URL_SERVER + this.routeVue)
             .pipe(
                 tap(users => console.log(users)),
-                catchError(this.handleError('getUsers', []))
+                catchError(this.handleError("getUsers", []))
             );
     }
 
+    getUserById(idpersonne: number): Observable<UserModel> {
+        const method = "GET";
+        let postData = {};
+        postData["idincident"] = idpersonne;
+        console.log(postData);
+        postData = JSON.stringify(postData);
 
-    private handleError<T> (operation = 'operation', result?: T) {
+        const shouldBeAsync = true;
+
+        const request = new XMLHttpRequest();
+        request.onload = function () {
+            const status = request.status;
+            const data = request.responseText;
+        };
+        request.open(method, this.usersUrl, shouldBeAsync);
+        request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        request.send(postData);
+
+        return this.http.get<UserModel>(this.usersUrl).pipe(
+            tap(_ => console.log(`fetched user idpersonne=${idpersonne}`)),
+            catchError(this.handleError<UserModel>(`getHero idpersonne=${idpersonne}`))
+        );
+
+    }
+
+
+    private handleError<T>(operation = "operation", result?: T) {
         return (error: any): Observable<T> => {
 
             // TODO: send the error to remote logging infrastructure

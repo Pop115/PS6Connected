@@ -1,5 +1,7 @@
 export enum Etat {nouveau, en_cours, fini}
+
 export enum Importance {faible, moyen, urgent, critique}
+
 export enum TypeIncident {panne, objet_perdu, nettoyage, achat}
 
 
@@ -8,7 +10,7 @@ export class IncidentModel {
     type: TypeIncident;
     auteur: string;
     destinataires: Array<string>;
-    localisation:string;
+    localisation: string;
     etat: Etat;
     urgence: Importance;
     titre: string;

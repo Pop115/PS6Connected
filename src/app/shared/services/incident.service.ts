@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 import {BehaviorSubject} from "rxjs/BehaviorSubject";
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 
 import {IncidentModel} from "../models/Incident";
 import {URL_SERVER} from "../constants/urls";
@@ -16,7 +16,7 @@ export class IncidentService {
     private routeDeclaration = "/declaration";
 
     httpOptions = {
-        headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+        headers: new HttpHeaders({"Content-Type": "application/json"})
     };
 
     constructor(private http: HttpClient) {
@@ -29,7 +29,7 @@ export class IncidentService {
     }
 
 
-    addIncident (incident: IncidentModel): Observable<IncidentModel> {
+    addIncident(incident: IncidentModel): Observable<IncidentModel> {
         return this.http.post<IncidentModel>(this.routeDeclaration, incident, this.httpOptions);
     }
 

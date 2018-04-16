@@ -3,7 +3,7 @@ import {IncidentService} from "../shared/services/incident.service";
 import {IncidentModel} from "../shared/models/Incident";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs/Observable";
-import * as $ from 'jquery';
+import * as $ from "jquery";
 
 @Component({
     selector: "app-declaration",
@@ -25,26 +25,26 @@ export class DeclarationComponent implements OnInit {
     addIncident(titre: string, description: string, categorie: string, date, heure, destinataire: string, importance: number, localisation: string) {
 
 
-        var url = "http://localhost:3000/declaration";
-        var method = "POST";
-        var postData = {};
-        postData['titre'] = titre;
-        postData['description'] = description;
-        postData['categorie'] = categorie;
-        postData['date'] = date;
-        postData['heure'] = heure;
-        postData['destinataire'] = destinataire;
-        postData['urgence'] = importance;
-        postData['localisation'] = localisation;
-        postData['idauteur'] = parseInt(localStorage.getItem('idpersonne'));
+        const url = "http://localhost:3000/declaration";
+        const method = "POST";
+        let postData = {};
+        postData["titre"] = titre;
+        postData["description"] = description;
+        postData["categorie"] = categorie;
+        postData["date"] = date;
+        postData["heure"] = heure;
+        postData["destinataire"] = destinataire;
+        postData["urgence"] = importance;
+        postData["localisation"] = localisation;
+        postData["idauteur"] = parseInt(localStorage.getItem("idpersonne"), 10);
         console.log(postData);
         postData = JSON.stringify(postData);
-        var shouldBeAsync = true;
-        var request = new XMLHttpRequest();
+        const shouldBeAsync = true;
+        const request = new XMLHttpRequest();
 
         request.onload = function () {
-            var status = request.status;
-            var data = request.responseText;
+            const status = request.status;
+            const data = request.responseText;
         };
 
         request.open(method, url, shouldBeAsync);

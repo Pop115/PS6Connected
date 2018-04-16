@@ -2,15 +2,15 @@ import {Component} from "@angular/core";
 import {Router} from "@angular/router";
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.css"]
+    selector: "app-root",
+    templateUrl: "./app.component.html",
+    styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
 
-  public title: string;
+    public title: string;
 
-  constructor(public router : Router) {
-    this.title = "MaisonDuBonheur";
-  }
+    constructor(public router: Router) {
+        this.title = "MaisonDuBonheur";
+    }
 }

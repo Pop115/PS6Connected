@@ -1,10 +1,9 @@
 import {BrowserModule} from "@angular/platform-browser";
 import {NgModule} from "@angular/core";
 import {HttpClientModule} from "@angular/common/http";
-import {RouterModule} from "@angular/router";
 
 import {AppComponent} from "./app.component";
-import {routes} from "./routes";
+import {AppRoutes} from "./app-routes";
 import {IncidentListComponent} from "./incident-list/incident-list.component";
 import {IncidentService} from "./shared/services/incident.service";
 import {FormsModule} from "@angular/forms";
@@ -14,7 +13,8 @@ import {DeclarationComponent} from "./declaration/declaration.component";
 import {UserService} from "./shared/services/user.service";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {ParametresComponent} from "./parametres/parametres.component";
-import { PageChoixTypeComponent } from "./page-choix-type/page-choix-type.component";
+import {EditUserComponent} from "./edit-user/edit-user.component";
+import {PageChoixTypeComponent} from "./page-choix-type/page-choix-type.component";
 
 @NgModule({
     declarations: [
@@ -24,11 +24,12 @@ import { PageChoixTypeComponent } from "./page-choix-type/page-choix-type.compon
         ChooseUserComponent,
         DeclarationComponent,
         ParametresComponent,
+        EditUserComponent,
         PageChoixTypeComponent
     ],
     imports: [
         BrowserModule,
-        RouterModule.forRoot(routes),
+        AppRoutes,
         HttpClientModule,
         FormsModule,
         NgbModule.forRoot()
