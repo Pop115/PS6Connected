@@ -54,12 +54,12 @@ export class DeclarationComponent implements OnInit {
     addIncident(titre: string, description: string, categorie: string, date, heure, importance: number, localisation: string) {
         console.log(this.destinataires);
 
-		if (!titre) {
-			$("#titre").css("background-color", "#fff");
+		if (titre == "") {
+			$("#titre_incident").css("background-color", "#f00");
 		}
 
-		else if (!description) {
-			$("#description").css("background-color", "#fff");
+		else if (description == "") {
+			$("#description_incident").css("background-color", "#ff5d62");
 		}
 
 		else {
