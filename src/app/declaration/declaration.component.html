@@ -69,7 +69,7 @@
 								<label class="form_label" for="date_selector">Date de l'incident
 									<span class="fa fa-question-circle" data-trigger="hover" data-toggle="popover" data-content="Date à laquelle est survenu l'incident"></span>
 								</label>
-								<input value="{{Date.now() | date: 'dd/MM/yyyy'}}" #date class="form-control" type="date" id="date_selector" placeholder="JJ/MM/YYY"
+								<input #date class="form-control" type="date" id="date_selector" placeholder="JJ/MM/YYY"
 									   name="dateSelector">
 							</div>
 						</div>
@@ -122,20 +122,21 @@
 					</div>
 
 					<div class="form-group">
-						<label class="form_label" for="titre_incident">Titre incident
+						<label class="form_label" for="titre_incident">Titre incident*
 							<span class="fa fa-question-circle" data-trigger="hover" data-toggle="popover" data-content="(Obligatoire) Donnez un titre à votre incident"></span>
 						</label>
 						<input #titre class="form-control" type="text" id="titre_incident" name="titleIncident">
 					</div>
 
 					<div class="form-group">
-						<label class="form_label" for="description_incident">Description incident
+						<label class="form_label" for="description_incident">Description incident*
 							<span class="fa fa-question-circle" data-trigger="hover" data-toggle="popover" data-content="(Obligatoire) Décrivez l'incident"></span>
 						</label>
 						<textarea #description class="form-control" id="description_incident" type="text"
 								  name="descriptionIncident"></textarea>
 					</div>
 
+					<p><small>(*) Champs obligatoires</small></p>
 					<button data-toggle="modal" data-target="#modalDeclaration"
 							(click)="addIncident(titre.value, description.value, categorie.value, date.value, heure.value, importance.value, localisation.value);"
 							class="btn btn-primary">Envoyer

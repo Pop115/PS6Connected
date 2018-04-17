@@ -23,7 +23,17 @@
 
                                 <div class="card-body">
                                     <header class="card-title font-weight-bold">Par {{incident.prenom}} {{incident.nom}}</header>
-                                    <button data-toggle="tooltip" title="Modifier" data-placement="bottom" class="btn btn-outline-secondary float-right"><span class="oi oi-cog"></span></button>
+
+
+                                    <div class="dropdown">
+                                        <button class="btn btn-outline-secondary float-right dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <span class="oi oi-cog"></span>
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Terminé <i class="fas fa-check"></i></a>
+                                            <a class="dropdown-item" href="#">En cours <i class="fas fa-check"></i></a>
+                                        </div>
+                                    </div>
                                     <!--<p class="card-text">Etat: {{incident.etat}}</p>-->
 
                                     <p>Destiné à <span *ngFor="let alloc of allocations">
