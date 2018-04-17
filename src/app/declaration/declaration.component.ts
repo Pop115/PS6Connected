@@ -55,7 +55,7 @@ export class DeclarationComponent implements OnInit {
         console.log(this.destinataires);
 
 		if (titre == "") {
-			$("#titre_incident").css("background-color", "#f00");
+			$("#titre_incident").css("background-color", "#ff5d62");
 		}
 
 		else if (description == "") {
