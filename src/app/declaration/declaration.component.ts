@@ -26,7 +26,10 @@ export class DeclarationComponent implements OnInit {
         );
 
 
+
+
     }
+
 
     ngOnInit() {
 
