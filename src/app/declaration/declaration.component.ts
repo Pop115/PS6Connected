@@ -52,11 +52,11 @@ export class DeclarationComponent implements OnInit {
         console.log(this.destinataires);
 
 		if (titre == "") {
-			$("#titre_incident").css("background-color", "#fff");
+			$("#titre_incident").css("background-color", "#d00");
 		}
 
 		else if (description == "") {
-			$("#description_incident").css("background-color", "#fff");
+			$("#description_incident").css("background-color", "#d00");
 		}
 
 		else {
