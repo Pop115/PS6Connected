@@ -41,7 +41,6 @@ app.get('/allocations', async (req, res) => {
 });
 
 
-
 /*	Insertion	*/
 app.put('/update', async (req, res) => {
 	try {
