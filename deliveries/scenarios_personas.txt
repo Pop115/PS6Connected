@@ -16,3 +16,8 @@ Le père souhaiterait diminuer la facture d'électricité, il voudrait donc éte
 
 3)
 La mère voudrait un réveil plus naturel, elle voudrait être réveillée par la lumière du soleil en ouvrant les volets automatiquement à 8h.
+
+4) Le père voit, d'après les statistiques d'incidents, que la majeur partie des dysfonctionnements électriques s'est produit dans la cuisine. Il décide donc d'entamer des travaux de mise aux normes dans cette pièce.
+
+
+5) La mère dispose d'un burreau dans lequel elle ne souhaite que personne ne rentre, car elle y stocke des documents très importants. Lorsque les enfants sont seuls à la maison et qu'ils entrent dans la pièce, les capteurs de mouvement les détectent et un incident est crée et affecté à la mère.
