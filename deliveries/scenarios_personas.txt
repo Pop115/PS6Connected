@@ -8,16 +8,14 @@ Une fille de 22 ans, habite dans un studio pendant la semaine pour être proche 
 
 Scénarios:
 
-1)
-Durant la semaine, la fille décide d'organiser une fête avec ses parents le week-end, elle voudrait donc demander à ses parents d'acheter des boissons et de la nourriture. Elle décide d'inscrire un message sur le frigo de ses parents pour qu'ils sachent quoi acheter.
 
-2)
+1)
 Le père souhaiterait diminuer la facture d'électricité, il voudrait donc éteindre les lumières et le chauffage automatiquement lorsque personne n'est dans la maison. Les capteurs à l'entrée pourraient permettre de détecter que quelqu'un est entré ou sorti
 
-3)
+2)
 La mère voudrait un réveil plus naturel, elle voudrait être réveillée par la lumière du soleil en ouvrant les volets automatiquement à 8h.
 
-4) Le père voit, d'après les statistiques d'incidents, que la majeur partie des dysfonctionnements électriques s'est produit dans la cuisine. Il décide donc d'entamer des travaux de mise aux normes dans cette pièce.
+3) Le père voit, d'après les statistiques d'incidents, que la majeur partie des dysfonctionnements électriques s'est produit dans la cuisine. Il décide donc d'entamer des travaux de mise aux normes dans cette pièce.
 
 
-5) La mère dispose d'un burreau dans lequel elle ne souhaite que personne ne rentre, car elle y stocke des documents très importants. Lorsque les enfants sont seuls à la maison et qu'ils entrent dans la pièce, les capteurs de mouvement les détectent et un incident est crée et affecté à la mère.
+4) La mère dispose d'un burreau dans lequel elle ne souhaite que personne ne rentre, car elle y stocke des documents très importants. Lorsque les enfants sont seuls à la maison et qu'ils entrent dans la pièce, les capteurs de mouvement les détectent et un incident est crée et affecté à la mère.
