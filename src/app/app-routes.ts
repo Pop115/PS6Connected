@@ -7,6 +7,7 @@ import {ParametresComponent} from "./parametres/parametres.component";
 import {EditUserComponent} from "./edit-user/edit-user.component";
 import {PageChoixTypeComponent} from "./page-choix-type/page-choix-type.component";
 import {NgModule} from "@angular/core";
+import {StatistiquesComponent} from "./statistiques/statistiques.component";
 
 export const routes: Routes = [
     {path: "", component: LoginComponent},
@@ -16,7 +17,8 @@ export const routes: Routes = [
     {path: "declaration", component: DeclarationComponent},
     {path: "parametres", component: ParametresComponent},
     {path: "edit", component: EditUserComponent},
-    {path: "page-choix-type", component: PageChoixTypeComponent}
+    {path: "page-choix-type", component: PageChoixTypeComponent},
+    {path: "statistiques", component: StatistiquesComponent}
 ];
 
 @NgModule({

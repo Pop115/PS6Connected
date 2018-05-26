@@ -18,6 +18,7 @@ import {PageChoixTypeComponent} from "./page-choix-type/page-choix-type.componen
 
 import * as $ from 'jquery';
 import * as bootstrap from 'bootstrap';
+import {StatistiquesComponent} from "./statistiques/statistiques.component";
 
 @NgModule({
     declarations: [
@@ -28,7 +29,8 @@ import * as bootstrap from 'bootstrap';
         DeclarationComponent,
         ParametresComponent,
         EditUserComponent,
-        PageChoixTypeComponent
+        PageChoixTypeComponent,
+        StatistiquesComponent
     ],
     imports: [
         BrowserModule,

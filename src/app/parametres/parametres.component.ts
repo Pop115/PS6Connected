@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 
 @Component({
-    selector: "app-login",
+    selector: "parametres",
     templateUrl: "./parametres.component.html",
     styleUrls: ["./parametres.component.css"]
 })

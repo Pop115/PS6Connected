@@ -12,6 +12,26 @@ app.use(cors());
 app.use(bodyParser.json({}));
 app.use(morgan('dev'));
 
+var elasticsearch = require('elasticsearch');
+var elasticClient = new elasticsearch.Client({
+	host: 'localhost:9200',
+	log: 'trace'
+});
+
+var http = require("http");
+var options = {
+	hostname: 'localhost',
+	port: 9200,
+	path: '/incidents/liste',
+	method: 'POST',
+	headers: {
+		'Content-Type': 'application/json',
+	}
+};
+
+
+
+
 
 const client = new Client({
 	connectionString: 'postgres://fgnwaomo:0h6w5yMkulNqwO6K5G0O4nNHlZbrLtHw@horton.elephantsql.com:5432/fgnwaomo'
@@ -116,7 +136,6 @@ app.post('/declaration', async (req, res) => {
 			+ json['localisation'] + "', '" + json['idauteur'] + "' )";
 		const result = await client.query(query);
 
-
 		const result2 = await client.query("SELECT idincident FROM INCIDENT WHERE titre = '" + json["titre"] + "' AND description = '" + json["description"] + "'");
 		var idincidentcreated = (result2.rows[0].idincident);
 
@@ -124,6 +143,22 @@ app.post('/declaration', async (req, res) => {
 			var someQuery = "INSERT INTO allocation (idincident, idpersonne) VALUES ('" + idincidentcreated + "', '" + destinataire + "')";
 			const resultFinalQuery = await client.query(someQuery);
 		}
+
+
+		var req = http.request(options, function(res) {
+			console.log('Status: ' + res.statusCode);
+			console.log('Headers: ' + JSON.stringify(res.headers));
+			res.setEncoding('utf8');
+			res.on('data', function (body) {
+				console.log('Body: ' + body);
+			});
+		});
+		req.on('error', function(e) {
+			console.log('problem with request: ' + e.message);
+		});
+		req.write(JSON.stringify(json));
+		req.end();
+
 
 
 		res.status(200).json(result.rows);
