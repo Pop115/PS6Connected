@@ -17,6 +17,7 @@ export class DeclarationComponent implements OnInit {
 
     public userList: UserModel[] = [];
     public destinataires: string[] = [];
+    categorie: string = '';
 
     constructor(private incidentService: IncidentService,
                 private userService: UserService,
@@ -29,7 +30,8 @@ export class DeclarationComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.route.paramMap.subscribe( params => console.log(params));
+        this.route.paramMap.subscribe( params => this.categorie = (params.get("categorie")));
+
     }
 
     clearForm() {
@@ -38,7 +40,6 @@ export class DeclarationComponent implements OnInit {
     }
 
     onChange(personne: string, isChecked: boolean) {
-
         if (isChecked) {
             this.destinataires.push(personne);
         } else {

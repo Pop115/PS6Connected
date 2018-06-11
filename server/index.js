@@ -118,17 +118,6 @@ app.post('/declaration', async (req, res) => {
 	try {
 		var json = req.body;
 
-		/*
-		console.log(json);
-		for (var attribut in json) {
-			json[attribut] = json[attribut].replace(/\\/g, "\\\\")
-				.replace(/\$/g, "\\$")
-				.replace(/'/g, "\\'")
-				.replace(/"/g, "\\\"");
-		}
-		console.log(json);
-*/
-
 		var query = "INSERT INTO incident " +
 			"(titre, description, type, urgence, date, heure, duree, etat, localisation, idAuteur)" +
 			" VALUES ('" + json['titre'] + "','" + json['description'] + "', '" + json['categorie'] + "', "

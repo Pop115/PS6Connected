@@ -19,11 +19,8 @@ export class IncidentListComponent implements OnInit {
         );
         this.incidentService.getIncident();
 
-
-
         this.incidentService.allocationsList.subscribe(
             (alloc) => {
-                console.log(alloc);
                 this.allocations = alloc
             }
         );
